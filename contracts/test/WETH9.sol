@@ -11,7 +11,7 @@ contract WETH9 is IWETH{
     event  Transfer(address indexed src, address indexed dst, uint wad);
     event  Deposit(address indexed dst, uint wad);
     event  Withdrawal(address indexed src, uint wad);
-
+    error EthTransfer(address recipient, uint256 amount);
     mapping (address => uint)                       public  balanceOf;
     mapping (address => mapping (address => uint))  public  allowance;
     receive() external payable {
