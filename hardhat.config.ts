@@ -57,14 +57,14 @@ const config: HardhatUserConfig = {
     compilerSource: "binary",
     settings: {
       //compilerPath: "zksolc",
-      forceEVMLA: true, // optional. Falls back to EVM legacy assembly if there is a bug with Yul
+      forceEVMLA: false, // optional. Falls back to EVM legacy assembly if there is a bug with Yul
       optimizer: {
         enabled: true, // optional. True by default
         mode: 'z', // optional. 3 by default, z to optimize bytecode size
-        fallback_to_optimizing_for_size: true
+        fallback_to_optimizing_for_size: false
       },
       // ERA VM Settings
-      enableEraVMExtensions: true,
+      enableEraVMExtensions: false,
     },
   },
   contractSizer: {
