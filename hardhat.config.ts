@@ -53,10 +53,12 @@ const config: HardhatUserConfig = {
     },
   },
   zksolc: {
-    version: "1.5.12",
+    //version: "latest",
+    //version: "1.5.12",
+    //version: "1.5.13",
     compilerSource: "binary",
     settings: {
-     // compilerPath: "/Users/hpblabs/go/zksolc",
+      compilerPath: "/Users/hpblabs/go/zksolc",
       forceEVMLA: false, // optional. Falls back to EVM legacy assembly if there is a bug with Yul
       optimizer: {
         enabled: true, // optional. True by default
@@ -75,17 +77,57 @@ const config: HardhatUserConfig = {
     only: [],
   },
   solidity: {
-    version: "0.8.28",
-    eraVersion : "1.0.0",
-    settings: {
-      optimizer: {
-        enabled: true,
-        mode: 'z',
-        runs: 200,
+    eraVersion : "1.0.1",
+    compilers: [
+      {
+        version: '0.8.28',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+          evmVersion:"cancun",
+          viaIR: false, // for the reason of :CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true`
+        },
       },
-      evmVersion:"cancun",
-      viaIR: false, // for the reason of :CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true`
-    },
+      {
+        version: '0.8.12',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+          viaIR: false, // for the reason of :CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true`
+        },
+      },
+      {
+        version: '0.6.6',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
+      {
+        version: '0.7.6',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
+      {
+        version: '0.5.16',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      }
+    ],
   },
 };
 
