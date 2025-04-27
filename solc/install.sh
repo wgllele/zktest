@@ -1,0 +1,1 @@
+export PATH="/zktest/solc/install.sh:${PATH}"

@@ -56,7 +56,7 @@ const config: HardhatUserConfig = {
     version: "1.5.12",
     compilerSource: "binary",
     settings: {
-      //compilerPath: "zksolc",
+     // compilerPath: "/Users/hpblabs/go/zksolc",
       forceEVMLA: false, // optional. Falls back to EVM legacy assembly if there is a bug with Yul
       optimizer: {
         enabled: true, // optional. True by default
@@ -76,9 +76,11 @@ const config: HardhatUserConfig = {
   },
   solidity: {
     version: "0.8.28",
+    eraVersion : "1.0.0",
     settings: {
       optimizer: {
         enabled: true,
+        mode: 'z',
         runs: 200,
       },
       evmVersion:"cancun",
